@@ -6,21 +6,26 @@
     <title>Happy Anniversary💗</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        body {
+        /* ล็อก HTML และ Body ให้เต็มจอพอดี ป้องกันการขยับและเลื่อนทุกกรณี */
+        html, body {
             margin: 0; padding: 0;
+            width: 100vw; height: 100vh;
+            overflow: hidden;
+            position: fixed;
+            touch-action: none; /* ปิดการเลื่อนและซูมหน้าจอผ่านการสัมผัส */
+            overscroll-behavior: none; /* ป้องกันเอฟเฟกต์เด้งดึ๋งบนมือถือ */
+        }
+
+        body {
             background: url('photo11.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Prompt', sans-serif;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
-            height: 100vh; overflow: hidden;
-            touch-action: manipulation;
             user-select: none;
-            position: relative;
         }
 
         .butterfly {
             position: absolute; 
-            /* บังคับให้อยู่ใต้หน้าจอตลอดตอนเริ่มต้น ป้องกันการค้างกลางจอ */
             bottom: -50px; 
             width: 20px; height: 20px;
             pointer-events: none; z-index: 1; font-size: 20px;

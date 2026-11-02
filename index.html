@@ -182,7 +182,7 @@
 
     <audio id="bg-music" src="song.mp3" loop autoplay></audio>
 
-    <h1 id="status-text">เธอช่วยรดน้ำให้ต้นไม้ต้นนี้หน่อยนะ🌱</h1>
+    <h1 id="status-text">อ้วนช่วยรดน้ำให้ต้นไม้ต้นนี้หน่อยนะ🌱</h1>
 
     <div id="plant-container">
         <img id="main-plant-img" src="stage1.png">
@@ -268,7 +268,7 @@
             count++;
             
             if (count <= 20) {
-                statusText.innerText = `เย้! ได้น้ำจากเธอแล้วเริ่มโตเลย (${count}%)`;
+                statusText.innerText = `เย้! ได้รับน้ำจากอ้วนแล้วเริ่มโตเลย (${count}%)`;
             } else if (count <= 40) {
                 statusText.innerText = `ขอบคุณที่ตั้งใจเลี้ยงดูแลอย่างดีนะ (${count}%)`;
             } else if (count <= 60) {
@@ -276,7 +276,7 @@
             } else if (count <= 80) {
                 statusText.innerText = `อีกนิดเดียวต้นไม้ของเราจะสมบูรณ์แบบแล้วนะ (${count}%)`;
             } else {
-                statusText.innerText = `อีกนิดนะคะ ต้นไม้ของเราเติบโตเต็มที่แล้ว (${count}%)`;
+                statusText.innerText = `อีกนิดนะค้าบ ต้นไม้ของเราเติบโตเต็มที่แล้ว (${count}%)`;
             }
             
             if(count === 20) plantImg.src = 'stage2.png';

@@ -6,19 +6,19 @@
     <title>Happy Anniversary💗</title>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        /* ล็อก HTML และ Body ให้เต็มจอพอดี ป้องกันการขยับและเลื่อนทุกกรณี */
+        /* แก้ไข: ย้าย background มาไว้ที่ html และ body พร้อมล็อกขนาดเต็มจอและป้องกันการขยับ */
         html, body {
             margin: 0; padding: 0;
             width: 100vw; height: 100vh;
             overflow: hidden;
             position: fixed;
-            touch-action: none; /* ปิดการเลื่อนและซูมหน้าจอผ่านการสัมผัส */
-            overscroll-behavior: none; /* ป้องกันเอฟเฟกต์เด้งดึ๋งบนมือถือ */
+            touch-action: none;
+            overscroll-behavior: none;
+            background: url('photo11.jpg') no-repeat center center fixed;
+            background-size: cover;
         }
 
         body {
-            background: url('photo11.jpg') no-repeat center center fixed;
-            background-size: cover;
             font-family: 'Prompt', sans-serif;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             user-select: none;

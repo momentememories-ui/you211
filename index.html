@@ -8,7 +8,8 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: url('photo11.png') no-repeat center center fixed;
+            /* แก้ไขนามสกุลไฟล์พื้นหลังเป็น photo11.jpg และล็อกห้ามขยับ */
+            background: url('photo11.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Prompt', sans-serif;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -21,7 +22,6 @@
         .butterfly {
             position: absolute; width: 20px; height: 20px;
             pointer-events: none; z-index: 1; font-size: 20px;
-            /* ปรับให้ลอยจากล่างขึ้นบนแบบกระจายทั่วจอ */
             animation: floatingUpBg 10s linear infinite;
         }
         @keyframes floatingUpBg {
@@ -219,7 +219,7 @@
             }, { once: true });
         });
 
-        // สร้างอิโมจิพื้นหลังให้ลอยขึ้นมาจากด้านล่างแบบกระจายทั่วจอทันที
+        // สร้างอิโมจิพื้นหลังให้ลอยขึ้นมาจากใต้จอแบบกระจายทั่วจอทันที (ไม่มีการค้างกองตรงกลาง)
         function createButterflies() {
             const emojis = ['💗', '🌸'];
             for(let i=0; i<15; i++) {
@@ -228,7 +228,7 @@
                 b.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
                 b.style.left = (Math.random() * 95) + 'vw';
                 b.style.setProperty('--x-drift', ((Math.random() - 0.5) * 120) + 'px');
-                b.style.animationDelay = (Math.random() * 10) + 's';
+                b.style.animationDelay = (Math.random() * 8) + 's';
                 b.style.animationDuration = (8 + Math.random() * 6) + 's';
                 document.body.appendChild(b);
             }
@@ -309,7 +309,6 @@
                 plantImg.src = 'bouquet.png'; 
                 
                 setTimeout(() => {
-                    // เพิ่มคลาสสั่นดึงดูดสายตา
                     plantImg.classList.add('wobble-active');
                 }, 50);
 
@@ -322,7 +321,6 @@
                     plantImg.style.cursor = 'pointer';
                     plantImg.onclick = () => {
                         bgMusic.play().catch(e => console.log("Music play blocked"));
-                        // พอกกดแล้วหยุดสั่นทันที
                         plantImg.classList.remove('wobble-active');
                         plantImg.style.transform = "scale(1.15) rotate(0deg)";
                         explode();
@@ -361,8 +359,6 @@
                 const jitterY = (Math.random() - 0.5) * 15;
                 const finalX = pos.x + jitterX;
                 const finalY = pos.y + jitterY;
-                
-                // สุ่มมุมเอียง (ระหว่าง -20 ถึง +20 องศา) เพื่อไม่ให้เรียงเป็นระเบียบ
                 const rotate = (Math.random() - 0.5) * 40;
 
                 setTimeout(() => {

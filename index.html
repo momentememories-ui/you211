@@ -8,7 +8,6 @@
     <style>
         body {
             margin: 0; padding: 0;
-            /* แก้ไขนามสกุลไฟล์พื้นหลังเป็น photo11.jpg และล็อกห้ามขยับ */
             background: url('photo11.jpg') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Prompt', sans-serif;
@@ -20,15 +19,18 @@
         }
 
         .butterfly {
-            position: absolute; width: 20px; height: 20px;
+            position: absolute; 
+            /* บังคับให้อยู่ใต้หน้าจอตลอดตอนเริ่มต้น ป้องกันการค้างกลางจอ */
+            bottom: -50px; 
+            width: 20px; height: 20px;
             pointer-events: none; z-index: 1; font-size: 20px;
             animation: floatingUpBg 10s linear infinite;
         }
         @keyframes floatingUpBg {
-            0% { transform: translateY(105vh) translateX(0) rotate(0deg); opacity: 0; }
+            0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
             15% { opacity: 0.8; }
             85% { opacity: 0.8; }
-            100% { transform: translateY(-10vh) translateX(var(--x-drift)) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(-110vh) translateX(var(--x-drift)) rotate(360deg); opacity: 0; }
         }
 
         #status-text { 
@@ -219,7 +221,7 @@
             }, { once: true });
         });
 
-        // สร้างอิโมจิพื้นหลังให้ลอยขึ้นมาจากใต้จอแบบกระจายทั่วจอทันที (ไม่มีการค้างกองตรงกลาง)
+        // สร้างอิโมจิพื้นหลังให้ลอยขึ้นมาจากด้านล่างสุดทันทีโดยไม่ค้างกลางจอ
         function createButterflies() {
             const emojis = ['💗', '🌸'];
             for(let i=0; i<15; i++) {
